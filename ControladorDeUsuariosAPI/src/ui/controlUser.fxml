@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseExited="#fillList" onMouseMoved="#fillList" prefHeight="651.0" prefWidth="843.0" style="-fx-background-color: #363636;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controlUserController">
+   <children>
+      <HBox fx:id="layoutControllerBottomHbox" layoutY="466.0" prefHeight="184.0" prefWidth="708.0" style="-fx-background-color: #363636;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="460.0">
+         <children>
+            <Button fx:id="AdicionarBt" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#buttonAdicionar" prefHeight="100.0" prefWidth="150.0" styleClass="buttonController" text="Adicionar" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="100.0" top="45.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imagens/download.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+            <Button fx:id="DeletarBt" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#buttonDeletar" prefHeight="100.0" prefWidth="150.0" styleClass="buttonController" text="Deletar">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="100.0" top="45.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imagens/1632602.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="EditarBt" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#buttonEditar" prefHeight="100.0" prefWidth="150.0" styleClass="buttonController" text="Editar">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="100.0" top="45.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imagens/1160515.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <ScrollPane fx:id="scrollListSp" layoutX="76.0" layoutY="127.0" prefHeight="468.0" prefWidth="708.0" style="-fx-background-color: #363636;" AnchorPane.bottomAnchor="163.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+      <AnchorPane fx:id="layoutVisualizationRightAnchorPane" disable="true" opacity="0.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4F4F4F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="imageCancelarIv" fitHeight="75.0" fitWidth="96.0" layoutX="38.0" layoutY="547.0" onMouseClicked="#selectYourFile" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imagens/close-window.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageFuncionarioIv" fitHeight="206.0" fitWidth="299.0" layoutX="35.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="396.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="49.0" />
+            <Label layoutX="35.0" layoutY="252.0" text="Nome" AnchorPane.bottomAnchor="372.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="259.0" AnchorPane.topAnchor="252.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nomeTf" layoutX="36.0" layoutY="282.0" prefHeight="25.0" prefWidth="289.0" AnchorPane.bottomAnchor="344.0" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="282.0" />
+            <Label layoutX="37.0" layoutY="320.0" prefHeight="27.0" prefWidth="94.0" text="Sobrenome" AnchorPane.bottomAnchor="304.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="212.0" AnchorPane.topAnchor="320.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="sobrenomeTf" layoutX="36.0" layoutY="347.0" prefHeight="25.0" prefWidth="289.0" AnchorPane.bottomAnchor="279.0" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="347.0" />
+            <ImageView fx:id="imageFecharIv" fitHeight="46.0" fitWidth="46.0" layoutX="273.0" layoutY="73.0" onMouseClicked="#fecharLayoutVisualization" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="532.0" AnchorPane.leftAnchor="273.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="73.0">
+               <image>
+                  <Image url="@../../imagens/179429.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="36.0" layoutY="390.0" prefHeight="27.0" prefWidth="94.0" text="Telefone">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="telefoneTf" layoutX="36.0" layoutY="419.0" prefHeight="25.0" prefWidth="289.0" />
+            <Label layoutX="39.0" layoutY="465.0" prefHeight="27.0" prefWidth="94.0" text="Email">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="emailTf" layoutX="37.0" layoutY="495.0" prefHeight="25.0" prefWidth="289.0" />
+            <ImageView fx:id="imageconfirmarIv" fitHeight="75.0" fitWidth="96.0" layoutX="219.0" layoutY="547.0" onMouseClicked="#confirmButton" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imagens/1004739.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <MenuBar prefHeight="25.0" prefWidth="844.0" style="-fx-background-color: #FFFAF0;" AnchorPane.bottomAnchor="621.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" style="-fx-font-size: 10pt; -fx-font-family: verdana; -fx-font-weight: 100;" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" style="-fx-font-size: 10pt; -fx-font-family: verdana; -fx-font-weight: 100;" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" style="-fx-font-size: 10pt; -fx-font-family: verdana; -fx-font-weight: 100;" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </MenuBar>
+   </children>
+</AnchorPane>

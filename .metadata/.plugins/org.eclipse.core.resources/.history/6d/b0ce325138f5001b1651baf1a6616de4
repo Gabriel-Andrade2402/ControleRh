@@ -1,0 +1,13 @@
+package Controller;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+
+public class controlUserController {
+	@FXML
+	private TextField tx;
+	@FXML
+	public void eventClick() {
+		
+	}
+}

@@ -1,0 +1,34 @@
+package database;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Properties;
+
+import com.sun.jdi.connect.spi.Connection;
+
+public class dbCon {
+	private static Connection conn;
+	public static Connection getConnection() {
+		if(conn==null) {
+			try {
+				Properties props= loadProperties();
+				
+			}catch(SQLException e) {
+				
+			}
+		}
+		return conn;
+	}
+	private static Properties loadProperties() {
+		try(FileInputStream file=new FileInputStream("db.properties")) {
+			Properties props= new Properties();
+			props.load(file);
+			return props;
+		}catch(IOException e) {
+			
+		}
+	}
+
+}

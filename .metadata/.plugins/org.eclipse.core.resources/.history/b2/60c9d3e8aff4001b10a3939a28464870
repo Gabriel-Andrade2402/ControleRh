@@ -1,0 +1,14 @@
+package database;
+
+import com.sun.jdi.connect.spi.Connection;
+
+public class dbCon {
+	private static Connection conn;
+	public static Connection getConnection() {
+		if(conn==null) {
+			
+		}
+		return null;
+	}
+
+}

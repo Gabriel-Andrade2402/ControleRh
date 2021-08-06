@@ -1,0 +1,7 @@
+package cssSup;
+
+public class TransiotionsDefault {
+	public static void clickButton(Button button) {
+		
+	}
+}

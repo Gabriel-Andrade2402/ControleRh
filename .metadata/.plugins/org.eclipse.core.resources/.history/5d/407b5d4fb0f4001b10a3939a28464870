@@ -1,0 +1,20 @@
+package database;
+
+import java.sql.SQLException;
+
+import com.sun.jdi.connect.spi.Connection;
+
+public class dbCon {
+	private static Connection conn;
+	public static Connection getConnection() {
+		if(conn==null) {
+			try {
+				
+			}catch(SQLException e) {
+				
+			}
+		}
+		return conn;
+	}
+
+}
