@@ -90,6 +90,7 @@ public class controlUserController {
 						imageFuncionarioIv.getId()
 						);
 				Funcionario novo=inserirFunc(func);
+				funcSelected=novo;
 				alertConfirm();
 			}
 		break;
@@ -183,6 +184,12 @@ public class controlUserController {
 			CssManipulation.removeClassInNode(AdicionarBt,"buttonControllerSelected");
 			CssManipulation.addClassInNode(AdicionarBt,"buttonController");
 			}
+		}else {
+			nomeTf.setEditable(false);	
+			sobrenomeTf.setEditable(false);
+			telefoneTf.setEditable(false);
+			emailTf.setEditable(false);
+			imageFuncionarioIv.setOnMouseClicked(null);
 		}
 		nomeTf.setText(func.getNome());
 		sobrenomeTf.setText(func.getSobrenome());
@@ -341,6 +348,7 @@ public class controlUserController {
 	public void updateVboxDelete(Funcionario func) {
 		for(Node node:listFuncionariosVbox.getChildren()) {
 			Button button=(Button)node;
+			System.out.println(button.getText());
 			if(button.getText().equals(func.getEmail())) {
 				listFuncionariosVbox.getChildren().remove(node);
 			}
@@ -362,7 +370,7 @@ public class controlUserController {
 			      selectFunc(Querys.findByEmail(event.toString().split("'")[1]));
 			   } 
 			}));
-		CssManipulation.addClassInNode(bt, "objectList");
+		CssManipulation.addClassInNode(bt, "objectListSun");
 		//Ordem dos insets é Bottom rigth left top
 		listFuncionariosVbox.setMargin(bt,new Insets(10,0,0,2));
 		listFuncionariosVbox.getChildren().add(bt);
@@ -418,7 +426,7 @@ public class controlUserController {
 		return true;
 	}
 	public void alertConfirm() {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
+		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Sucesso");
 		alert.setContentText("Operação realizada com sucesso");
 		alert.show();

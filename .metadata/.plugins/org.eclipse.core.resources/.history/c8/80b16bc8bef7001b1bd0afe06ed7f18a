@@ -37,6 +37,8 @@ public class controlUserController {
 	@FXML
 	private HBox layoutControllerBottomHbox;
 	@FXML
+	private AnchorPane parent;
+	@FXML
 	private AnchorPane layoutVisualizationRightAnchorPane;
 	@FXML
 	private AnchorPane layoutAlterModeAndColors;
@@ -181,6 +183,8 @@ public class controlUserController {
 			CssManipulation.removeClassInNode(AdicionarBt,"buttonControllerSelected");
 			CssManipulation.addClassInNode(AdicionarBt,"buttonController");
 			}
+		}else {
+			
 		}
 		nomeTf.setText(func.getNome());
 		sobrenomeTf.setText(func.getSobrenome());
@@ -223,7 +227,7 @@ public class controlUserController {
 	public void fillList() {
 		if(listFuncionariosVbox==null) {
 			InsertVbox();
-			List<Funcionario>list=Querys.returnAll();
+			List<Funcionario>list=databaseManipulation.returnAll();
 			for(Funcionario func:list) {
 				Button bt= new Button();
 				bt.setText(func.getEmail());
@@ -234,7 +238,7 @@ public class controlUserController {
 					      selectFunc(Querys.findByEmail(event.toString().split("'")[1]));
 					   } 
 					}));
-				CssManipulation.addClassInNode(bt,"objectList");
+				CssManipulation.addClassInNode(bt,"objectListSun");
 				//Ordem dos insets é Bottom rigth left top
 				listFuncionariosVbox.setMargin(bt,new Insets(10,0,0,2));
 				listFuncionariosVbox.getChildren().add(bt);
@@ -256,7 +260,7 @@ public class controlUserController {
 	//Fechar e Abrir layoutVisualizationRightAnchorPane
 	public void fecharLayoutVisualization() {
 		if(layoutVisualizationRightAnchorPane.getOpacity()==1) {
-			listFuncionariosVbox.setPrefWidth(830);
+			listFuncionariosVbox.setPrefWidth(825);
 			layoutControllerBottomHbox.setPrefWidth(900);
 			AdicionarBt.setPrefHeight(100);
 			AdicionarBt.setPrefWidth(200);
@@ -298,7 +302,31 @@ public class controlUserController {
 	//Transições
 	@FXML
 	public void transition() {
-		TransitionManipulation.translateXOfNodeTransition(buttonModoEscuro,layoutAlterModeAndColors.getLayoutX());
+		if(buttonModoEscuro.getTranslateX()==45) {
+			//Muda para o modo claro
+			TransitionManipulation.translateXOfNodeTransition(buttonModoEscuro,0);
+			TransitionManipulation.rotateNode180negative(buttonModoEscuro);	
+			TransitionManipulation.alterImageWithDelay01(buttonModoEscuro,"iconeTrocarModo-lua.png");
+			CssManipulation.alterFill(layoutControllerBottomHbox,"#6495ED");
+			CssManipulation.alterFill(scrollListSp,"#FFFAFA");
+			CssManipulation.alterFill(layoutVisualizationRightAnchorPane,"#FFFAFA");
+			CssManipulation.alterFill(parent,"#FFFAFA");
+			CssManipulation.alterFill(listFuncionariosVbox,"#FFFAFA");
+			CssManipulation.removeClassArrayNode(listFuncionariosVbox.getChildren(),"objectListMoon");
+			CssManipulation.addClassArrayNode(listFuncionariosVbox.getChildren(),"objectListSun");
+		}if(buttonModoEscuro.getTranslateX()==0) {
+			//Muda para o modo escuro
+			TransitionManipulation.translateXOfNodeTransition(buttonModoEscuro,45);
+			TransitionManipulation.rotateNode180positive(buttonModoEscuro);
+			TransitionManipulation.alterImageWithDelay01(buttonModoEscuro,"iconeTrocarModo-sol.png");
+			CssManipulation.alterFill(layoutControllerBottomHbox,"#4F4F4F");
+			CssManipulation.alterFill(scrollListSp,"#4F4F4F");
+			CssManipulation.alterFill(layoutVisualizationRightAnchorPane,"#4F4F4F");
+			CssManipulation.alterFill(parent,"#4F4F4F");
+			CssManipulation.alterFill(listFuncionariosVbox,"#4F4F4F");
+			CssManipulation.removeClassArrayNode(listFuncionariosVbox.getChildren(),"objectListSun");
+			CssManipulation.addClassArrayNode(listFuncionariosVbox.getChildren(),"objectListMoon");
+		}
 	}
 	
 	/*metodos auxiliar para
