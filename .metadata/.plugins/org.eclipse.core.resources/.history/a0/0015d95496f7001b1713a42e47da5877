@@ -1,0 +1,8 @@
+package model;
+
+public class databaseManipulation {
+	public static void addFuncionario(Funcionario func) {
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+package model;
+
+import Entidades.Funcionario;
+
+public class databaseManipulation {
+	public static void addFuncionario(Funcionario func) {
+		
+	}
+
+}

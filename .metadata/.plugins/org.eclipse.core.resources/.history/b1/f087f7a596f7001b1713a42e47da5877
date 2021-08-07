@@ -1,0 +1,11 @@
+package model;
+
+import Entidades.Funcionario;
+import database.Querys;
+
+public class databaseManipulation {
+	public static Funcionario addFuncionario(Funcionario func) {
+		return Querys.addFuncionario(func);
+	}
+
+}

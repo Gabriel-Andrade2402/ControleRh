@@ -181,7 +181,6 @@ public class controlUserController {
 		telefoneTf.setText(func.getTelefone());
 		emailTf.setText(func.getEmail());
 		imageFuncionarioIv.setImage(new Image("file:..\\..\\imagens\\"+func.getPathImage()));
-		imageFuncionarioIv.setId(func.getPathImage());
 	}
 	
 	//inserir novo funcionario, atualizar ou deletar

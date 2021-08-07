@@ -25,7 +25,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
-import model.databaseManipulation;
 
 public class controlUserController {
 	@FXML
@@ -108,7 +107,7 @@ public class controlUserController {
 		clearTextFields();
 		buttonSelected=AdicionarBt;
 		CssManipulation.removeClassInNode(AdicionarBt,"buttonController");
-		CssManipulation.addClassInNode(AdicionarBt,"buttonControllerSelected");
+		CssManipulation.addClassInNode(AdicionarBt, "buttonControllerSelected");
 		imageFuncionarioIv.setOnMouseClicked((new EventHandler<MouseEvent>() { 
 			   public void handle(MouseEvent event) {
 				   File file=selectYourFile();
@@ -119,7 +118,7 @@ public class controlUserController {
 				   
 			   } 
 			}));
-		CssManipulation.addClassInNode(imageFuncionarioIv, "imageDefault");
+		imageFuncionarioIv.getStyleClass().add("imageDefault");
 	}
 	@FXML
 	public void buttonEditar() {
@@ -130,8 +129,8 @@ public class controlUserController {
 			emailTf.setEditable(true);
 			telefoneTf.setEditable(true);
 			buttonSelected=EditarBt;
-			CssManipulation.removeClassInNode(EditarBt,"buttonController");
-			CssManipulation.addClassInNode(EditarBt,"buttonControllerSelected");
+			EditarBt.getStyleClass().remove("buttonController");
+			EditarBt.getStyleClass().add("buttonControllerSelected");
 			imageFuncionarioIv.setOnMouseClicked((new EventHandler<MouseEvent>() { 
 				   public void handle(MouseEvent event) {
 					   File file=selectYourFile();
@@ -142,7 +141,7 @@ public class controlUserController {
 					   
 				   } 
 		    }));
-			CssManipulation.addClassInNode(imageFuncionarioIv, "imageDefault");
+			imageFuncionarioIv.getStyleClass().add("imageDefault");
 		}else {
 			fecharLayoutVisualization();
 		}
@@ -181,18 +180,17 @@ public class controlUserController {
 		telefoneTf.setText(func.getTelefone());
 		emailTf.setText(func.getEmail());
 		imageFuncionarioIv.setImage(new Image("file:..\\..\\imagens\\"+func.getPathImage()));
-		imageFuncionarioIv.setId(func.getPathImage());
 	}
 	
 	//inserir novo funcionario, atualizar ou deletar
 	public Funcionario inserirFunc(Funcionario func) {
 		updateVboxInsert(func);
-		return databaseManipulation.addFuncionario(func);
+		return Querys.addFuncionario(func);
 		
 	}
 	public void atualizaFunc(Funcionario func) {
 		func.setId(funcSelected.getId());
-		databaseManipulation.updateFuncionario(func);
+		Querys.atualizarFuncionario(func);
 		updateTfs(func);
 		Alert alert= new Alert(AlertType.INFORMATION);
 		alert.setTitle("Atualização");
@@ -200,7 +198,7 @@ public class controlUserController {
 		alert.show();
 	}
 	public void deletarFunc() {
-		databaseManipulation.removeFuncionario(funcSelected);
+		Querys.deletarFuncionario(funcSelected);
 		Alert alert= new Alert(AlertType.INFORMATION);
 		alert.setTitle("Deletado");
 		alert.setContentText("O funcionario não faz mais parte do banco");
@@ -393,7 +391,7 @@ public class controlUserController {
 		return true;
 	}
 	public void alertConfirm() {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
+		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Sucesso");
 		alert.setContentText("Operação realizada com sucesso");
 		alert.show();

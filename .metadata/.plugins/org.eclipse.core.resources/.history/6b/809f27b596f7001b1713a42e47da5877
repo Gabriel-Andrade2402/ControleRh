@@ -181,7 +181,6 @@ public class controlUserController {
 		telefoneTf.setText(func.getTelefone());
 		emailTf.setText(func.getEmail());
 		imageFuncionarioIv.setImage(new Image("file:..\\..\\imagens\\"+func.getPathImage()));
-		imageFuncionarioIv.setId(func.getPathImage());
 	}
 	
 	//inserir novo funcionario, atualizar ou deletar
@@ -192,7 +191,7 @@ public class controlUserController {
 	}
 	public void atualizaFunc(Funcionario func) {
 		func.setId(funcSelected.getId());
-		databaseManipulation.updateFuncionario(func);
+		Querys.atualizarFuncionario(func);
 		updateTfs(func);
 		Alert alert= new Alert(AlertType.INFORMATION);
 		alert.setTitle("Atualização");
@@ -200,7 +199,7 @@ public class controlUserController {
 		alert.show();
 	}
 	public void deletarFunc() {
-		databaseManipulation.removeFuncionario(funcSelected);
+		Querys.deletarFuncionario(funcSelected);
 		Alert alert= new Alert(AlertType.INFORMATION);
 		alert.setTitle("Deletado");
 		alert.setContentText("O funcionario não faz mais parte do banco");
