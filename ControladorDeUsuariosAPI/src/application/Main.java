@@ -7,6 +7,8 @@ import ui.controlUserController;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import java.sql.*;
+import java.util.regex.Pattern;
+
 import javax.sql.*;
 
 import database.Querys;

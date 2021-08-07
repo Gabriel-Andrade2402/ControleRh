@@ -45,15 +45,16 @@ public class Querys {
 			conn = dbCon.getConnection();
 			st = conn.prepareStatement(
 					"INSERT INTO funcionarios "
-					+ "(nome,sobrenome,telefone,email) "
+					+ "(nome,sobrenome,telefone,email,path_image) "
 					+ "VALUES "
-					+ "(?, ?, ?, ?)", 
+					+ "(?, ?, ?, ?,?)", 
 					Statement.RETURN_GENERATED_KEYS);
 
 			st.setString(1, func.getNome());
 			st.setString(2, func.getSobrenome());
 			st.setString(3,func.getTelefone());
 			st.setString(4, func.getEmail());
+			st.setString(5,func.getPathImage());
 			st.executeUpdate();
 			ResultSet rs = st.getGeneratedKeys();
 			Funcionario funcionario=findByEmail(func.getEmail());
@@ -80,7 +81,8 @@ public class Querys {
 					+ "SET nome = ?, "
 					+ "sobrenome=?,"
 					+ "telefone=?,"
-					+ "email=?"
+					+ "email=?,"
+					+ "path_image=? "
 					+ "WHERE"
 					+ "(id = ?)");
 
@@ -88,7 +90,8 @@ public class Querys {
 			st.setString(2,func.getSobrenome());
 			st.setString(3,func.getTelefone());
 			st.setString(4,func.getEmail());
-			st.setInt(5,func.getId());
+			st.setString(5,func.getPathImage());
+			st.setInt(6,func.getId());
 			st.executeUpdate();
 			
 			return true;

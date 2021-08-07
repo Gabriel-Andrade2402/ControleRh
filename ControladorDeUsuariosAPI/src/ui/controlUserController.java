@@ -3,7 +3,6 @@ package ui;
 
 
 import java.io.File;
-import java.io.InputStream;
 import java.util.List;
 
 import Entidades.Funcionario;
@@ -77,9 +76,10 @@ public class controlUserController {
 						sobrenomeTf.getText(),
 						telefoneTf.getText(),
 						emailTf.getText(),
-						null
+						imageFuncionarioIv.getId()
 						);
 				Funcionario novo=inserirFunc(func);
+				alertConfirm();
 			}
 		break;
 		case "Editar":
@@ -89,7 +89,7 @@ public class controlUserController {
 					sobrenomeTf.getText(),
 					telefoneTf.getText(),
 					emailTf.getText(),
-					null
+					imageFuncionarioIv.getId()
 					);
 			atualizaFunc(func);
 			break;
@@ -100,16 +100,27 @@ public class controlUserController {
 	}
 	@FXML
 	public void buttonAdicionar() {
-		OffFillLastButton();
+		cleanFillLastButton();
 		abrirLayoutVisualization();
 		clearTextFields();
 		buttonSelected=AdicionarBt;
 		AdicionarBt.getStyleClass().remove("buttonController");
 		AdicionarBt.getStyleClass().add("buttonControllerSelected");
+		imageFuncionarioIv.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+			   public void handle(MouseEvent event) {
+				   File file=selectYourFile();
+				   if(file!=null) {
+					   imageFuncionarioIv.setImage(new Image("File:..\\..\\imagens\\"+file.getName()));
+					   imageFuncionarioIv.setId(file.getName());
+				   }
+				   
+			   } 
+			}));
+		imageFuncionarioIv.getStyleClass().add("imageDefault");
 	}
 	@FXML
 	public void buttonEditar() {
-		OffFillLastButton();
+		cleanFillLastButton();
 		if(checkFuncSelected()){
 			nomeTf.setEditable(true);
 			sobrenomeTf.setEditable(true);
@@ -118,11 +129,24 @@ public class controlUserController {
 			buttonSelected=EditarBt;
 			EditarBt.getStyleClass().remove("buttonController");
 			EditarBt.getStyleClass().add("buttonControllerSelected");
+			imageFuncionarioIv.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+				   public void handle(MouseEvent event) {
+					   File file=selectYourFile();
+					   if(file!=null) {
+						   imageFuncionarioIv.setImage(new Image("File:..\\..\\imagens\\"+file.getName()));
+						   imageFuncionarioIv.setId(file.getName());
+					   }
+					   
+				   } 
+		    }));
+			imageFuncionarioIv.getStyleClass().add("imageDefault");
+		}else {
+			fecharLayoutVisualization();
 		}
 	}
 	@FXML
 	public void buttonDeletar() {
-		OffFillLastButton();
+		cleanFillLastButton();
 		if(checkFuncSelected()) {
 			deletarFunc();
 		}
@@ -137,15 +161,18 @@ public class controlUserController {
 	public void selectFunc(Funcionario func) {
 		abrirLayoutVisualization();
 		funcSelected=func;
+		if(buttonSelected!=null) {if(!buttonSelected.getText().equals("Editar")) {
+			nomeTf.setEditable(false);	
+			sobrenomeTf.setEditable(false);
+			telefoneTf.setEditable(false);
+			emailTf.setEditable(false);
+			imageFuncionarioIv.setOnMouseClicked(null);
+			imageFuncionarioIv.getStyleClass().remove("imageDefault");
+		}}
 		nomeTf.setText(func.getNome());
-		nomeTf.setEditable(false);
 		sobrenomeTf.setText(func.getSobrenome());
-		sobrenomeTf.setEditable(false);
 		telefoneTf.setText(func.getTelefone());
-		telefoneTf.setEditable(false);
 		emailTf.setText(func.getEmail());
-		emailTf.setEditable(false);
-		//imageFuncionarioIv.setStyle("-fx-image:url(\""+func.getPathImage()+"\");");
 		imageFuncionarioIv.setImage(new Image("file:..\\..\\imagens\\"+func.getPathImage()));
 	}
 	
@@ -242,7 +269,7 @@ public class controlUserController {
 			layoutVisualizationRightAnchorPane.setOpacity(0);
 			layoutVisualizationRightAnchorPane.setDisable(true);
 			clearTextFields();
-			OffFillLastButton();
+			cleanFillLastButton();
 		}
 	}
 	@FXML
@@ -266,6 +293,7 @@ public class controlUserController {
 		}*/	
 	}
 	
+	
 	/*metodos auxiliar para
 	  -resetar os dados antigos dos textFields,
 	  -Iniciar css das imagens,
@@ -275,6 +303,7 @@ public class controlUserController {
 	  -atualiza VBox inserindo 1
 	  -desligar preenchimento do ultimo botao
 	  -atualiza vbox deletando 1
+	  -tira a edição da imagem do funcionario
 	*/
 	public void updateVboxDelete(Funcionario func) {
 		for(Node node:listFuncionariosVbox.getChildren()) {
@@ -305,7 +334,7 @@ public class controlUserController {
 		listFuncionariosVbox.setMargin(bt,new Insets(10,0,0,2));
 		listFuncionariosVbox.getChildren().add(bt);
 	}
-	public void OffFillLastButton() {
+	public void cleanFillLastButton() {
 		if(buttonSelected!=null) {
 			switch(buttonSelected.getText()) {
 				case "Adicionar":
@@ -355,7 +384,12 @@ public class controlUserController {
 		
 		return true;
 	}
-	public void alertConfirm() {}
+	public void alertConfirm() {
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Sucesso");
+		alert.setContentText("Operação realizada com sucesso");
+		alert.show();
+	}
 	public boolean checkFuncSelected() {
 		if(funcSelected==null) {
 			Alert alert= new Alert(AlertType.WARNING);
@@ -375,7 +409,9 @@ public class controlUserController {
 		telefoneTf.setEditable(true);
 		emailTf.setText("");
 		emailTf.setEditable(true);
+		imageFuncionarioIv.setImage(new Image("File:..\\..\\imagens\\ImageDefault.png"));
 	}
+	public void clearEditingImage() {}
 	public void initializeCssForImagens() {
 		imageconfirmarIv.getStyleClass().add("imageDefault");
 		imageCancelarIv.getStyleClass().add("imageDefault");

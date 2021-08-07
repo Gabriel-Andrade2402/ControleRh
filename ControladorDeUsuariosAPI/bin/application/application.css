@@ -39,9 +39,7 @@
 	-fx-text-fill:white;
 	-fx-cursor:hand;
 }
-.imageteste{
-	-fx-image:url("../../imagens/imageDefault.png");
-}
+
 .imageDefault{}
 .imageDefault:hover{
 	-fx-cursor:hand;
