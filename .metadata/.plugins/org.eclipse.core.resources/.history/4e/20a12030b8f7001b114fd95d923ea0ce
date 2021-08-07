@@ -8,6 +8,8 @@ import java.util.List;
 
 import Entidades.Funcionario;
 import Sup.CssManipulation;
+import Sup.FileManipulation;
+import Sup.TransitionManipulation;
 import database.Querys;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -35,9 +37,11 @@ public class controlUserController {
 	@FXML
 	private HBox layoutControllerBottomHbox;
 	@FXML
+	private AnchorPane parent;
+	@FXML
 	private AnchorPane layoutVisualizationRightAnchorPane;
 	@FXML
-	private TextField nomeTf;
+	private AnchorPane layoutAlterModeAndColors;
 	@FXML
 	private ImageView imageFuncionarioIv;
 	@FXML
@@ -47,9 +51,13 @@ public class controlUserController {
 	@FXML
 	private ImageView imageFecharIv;
 	@FXML
+	private ImageView buttonModoEscuro;
+	@FXML
 	private TextField sobrenomeTf;
 	@FXML
 	private TextField telefoneTf;
+	@FXML
+	private TextField nomeTf;
 	@FXML
 	private TextField emailTf;
 	@FXML
@@ -111,7 +119,7 @@ public class controlUserController {
 		CssManipulation.addClassInNode(AdicionarBt,"buttonControllerSelected");
 		imageFuncionarioIv.setOnMouseClicked((new EventHandler<MouseEvent>() { 
 			   public void handle(MouseEvent event) {
-				   File file=selectYourFile();
+				   File file=FileManipulation.selectYourFile();
 				   if(file!=null) {
 					   imageFuncionarioIv.setImage(new Image("File:..\\..\\imagens\\"+file.getName()));
 					   imageFuncionarioIv.setId(file.getName());
@@ -134,7 +142,7 @@ public class controlUserController {
 			CssManipulation.addClassInNode(EditarBt,"buttonControllerSelected");
 			imageFuncionarioIv.setOnMouseClicked((new EventHandler<MouseEvent>() { 
 				   public void handle(MouseEvent event) {
-					   File file=selectYourFile();
+					   File file=FileManipulation.selectYourFile();
 					   if(file!=null) {
 						   imageFuncionarioIv.setImage(new Image("File:..\\..\\imagens\\"+file.getName()));
 						   imageFuncionarioIv.setId(file.getName());
@@ -217,7 +225,7 @@ public class controlUserController {
 	public void fillList() {
 		if(listFuncionariosVbox==null) {
 			InsertVbox();
-			List<Funcionario>list=Querys.returnAll();
+			List<Funcionario>list=databaseManipulation.returnAll();
 			for(Funcionario func:list) {
 				Button bt= new Button();
 				bt.setText(func.getEmail());
@@ -228,7 +236,7 @@ public class controlUserController {
 					      selectFunc(Querys.findByEmail(event.toString().split("'")[1]));
 					   } 
 					}));
-				CssManipulation.addClassInNode(bt,"objectList");
+				CssManipulation.addClassInNode(bt,"objectListSun");
 				//Ordem dos insets é Bottom rigth left top
 				listFuncionariosVbox.setMargin(bt,new Insets(10,0,0,2));
 				listFuncionariosVbox.getChildren().add(bt);
@@ -242,28 +250,15 @@ public class controlUserController {
 			scrollListSp.setContent(listFuncionariosVbox);
 			initializeCssForImagens();
 		}
-		listFuncionariosVbox.styleProperty().set("-fx-background-color:#363636;");
-		listFuncionariosVbox.getParent().styleProperty().set("-fx-background-color:#363636;");
+		listFuncionariosVbox.styleProperty().set("-fx-background-color:#FFFAFA;");
+		listFuncionariosVbox.getParent().styleProperty().set("-fx-background-color:#FFFAFA;");
 	}
-	//Método que seleciona arquivo
-	@FXML
-	public File selectYourFile() {
-		FileChooser chooser = new FileChooser();
-		chooser.setInitialDirectory(new File(System.getProperty("user.home")));
-		File file=chooser.showOpenDialog(null);
-		String path;
-		if(file!= null) {
-		path = file.getPath();
-		} else {
-		//default return value
-		path = null;
-		}
-		return file;
-	}
+
+	
 	//Fechar e Abrir layoutVisualizationRightAnchorPane
 	public void fecharLayoutVisualization() {
 		if(layoutVisualizationRightAnchorPane.getOpacity()==1) {
-			listFuncionariosVbox.setPrefWidth(830);
+			listFuncionariosVbox.setPrefWidth(825);
 			layoutControllerBottomHbox.setPrefWidth(900);
 			AdicionarBt.setPrefHeight(100);
 			AdicionarBt.setPrefWidth(200);
@@ -276,6 +271,7 @@ public class controlUserController {
 			layoutControllerBottomHbox.setMargin(EditarBt,new Insets(45,0,20,70));
 			layoutVisualizationRightAnchorPane.setOpacity(0);
 			layoutVisualizationRightAnchorPane.setDisable(true);
+			funcSelected=null;
 			clearTextFields();
 			cleanFillLastButton();
 		}
@@ -301,6 +297,33 @@ public class controlUserController {
 		}*/	
 	}
 	
+	//Transições
+	@FXML
+	public void transition() {
+		if(buttonModoEscuro.getTranslateX()==45) {
+			//Muda para o modo claro
+			TransitionManipulation.translateXOfNodeTransition(buttonModoEscuro,0);
+			TransitionManipulation.rotateNode180negative(buttonModoEscuro);	
+			TransitionManipulation.alterImageWithDelay01(buttonModoEscuro,"iconeTrocarModo-lua.png");
+			TransitionManipulation.alterFill(layoutControllerBottomHbox,"#6495ED");
+			TransitionManipulation.alterFill(scrollListSp,"#FFFAFA");
+			TransitionManipulation.alterFill(layoutVisualizationRightAnchorPane,"#FFFAFA");
+			TransitionManipulation.alterFill(parent,"#FFFAFA");
+			TransitionManipulation.alterFill(listFuncionariosVbox,"#FFFAFA");
+			CssManipulation.alterClassArrayNode(listFuncionariosVbox.getChildren(),"objectListSun");
+		}if(buttonModoEscuro.getTranslateX()==0) {
+			//Muda para o modo escuro
+			TransitionManipulation.translateXOfNodeTransition(buttonModoEscuro,45);
+			TransitionManipulation.rotateNode180positive(buttonModoEscuro);
+			TransitionManipulation.alterImageWithDelay01(buttonModoEscuro,"iconeTrocarModo-sol.png");
+			TransitionManipulation.alterFill(layoutControllerBottomHbox,"#4F4F4F");
+			TransitionManipulation.alterFill(scrollListSp,"#4F4F4F");
+			TransitionManipulation.alterFill(layoutVisualizationRightAnchorPane,"#4F4F4F");
+			TransitionManipulation.alterFill(parent,"#4F4F4F");
+			TransitionManipulation.alterFill(listFuncionariosVbox,"#4F4F4F");
+			CssManipulation.alterClassArrayNode(listFuncionariosVbox.getChildren(),"objectListMoon");
+		}
+	}
 	
 	/*metodos auxiliar para
 	  -resetar os dados antigos dos textFields,

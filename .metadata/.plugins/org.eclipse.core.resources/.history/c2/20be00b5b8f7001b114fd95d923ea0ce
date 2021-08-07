@@ -32,7 +32,4 @@ public class CssManipulation {
 			node.getStyleClass().remove(oldClass);
 		}
 	}
-	public static void alterFill(Node node,String colornew) {
-		node.styleProperty().set("-fx-background-color:"+colornew+";");
-	}
 }

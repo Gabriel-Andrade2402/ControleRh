@@ -42,6 +42,8 @@ public class TransitionManipulation {
 		},250l);
 		
 	}
-
+	public static void alterFill(Node node,String colornew) {
+		node.styleProperty().set("-fx-background-color:"+colornew+";");
+	}
 
 }

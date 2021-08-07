@@ -236,7 +236,7 @@ public class controlUserController {
 					      selectFunc(Querys.findByEmail(event.toString().split("'")[1]));
 					   } 
 					}));
-				CssManipulation.addClassInNode(bt,"objectList");
+				CssManipulation.addClassInNode(bt,"objectListSun");
 				//Ordem dos insets é Bottom rigth left top
 				listFuncionariosVbox.setMargin(bt,new Insets(10,0,0,2));
 				listFuncionariosVbox.getChildren().add(bt);
@@ -305,21 +305,25 @@ public class controlUserController {
 			TransitionManipulation.translateXOfNodeTransition(buttonModoEscuro,0);
 			TransitionManipulation.rotateNode180negative(buttonModoEscuro);	
 			TransitionManipulation.alterImageWithDelay01(buttonModoEscuro,"iconeTrocarModo-lua.png");
-			TransitionManipulation.alterFill(layoutControllerBottomHbox,"#6495ED");
-			TransitionManipulation.alterFill(scrollListSp,"#FFFAFA");
-			TransitionManipulation.alterFill(layoutVisualizationRightAnchorPane,"#FFFAFA");
-			TransitionManipulation.alterFill(parent,"#FFFAFA");
-			TransitionManipulation.alterFill(listFuncionariosVbox,"#FFFAFA");
+			CssManipulation.alterFill(layoutControllerBottomHbox,"#6495ED");
+			CssManipulation.alterFill(scrollListSp,"#FFFAFA");
+			CssManipulation.alterFill(layoutVisualizationRightAnchorPane,"#FFFAFA");
+			CssManipulation.alterFill(parent,"#FFFAFA");
+			CssManipulation.alterFill(listFuncionariosVbox,"#FFFAFA");
+			CssManipulation.removeClassArrayNode(listFuncionariosVbox.getChildren(),"objectListMoon");
+			CssManipulation.addClassArrayNode(listFuncionariosVbox.getChildren(),"objectListSun");
 		}if(buttonModoEscuro.getTranslateX()==0) {
 			//Muda para o modo escuro
 			TransitionManipulation.translateXOfNodeTransition(buttonModoEscuro,45);
 			TransitionManipulation.rotateNode180positive(buttonModoEscuro);
 			TransitionManipulation.alterImageWithDelay01(buttonModoEscuro,"iconeTrocarModo-sol.png");
-			TransitionManipulation.alterFill(layoutControllerBottomHbox,"#4F4F4F");
-			TransitionManipulation.alterFill(scrollListSp,"#4F4F4F");
-			TransitionManipulation.alterFill(layoutVisualizationRightAnchorPane,"#4F4F4F");
-			TransitionManipulation.alterFill(parent,"#4F4F4F");
-			TransitionManipulation.alterFill(listFuncionariosVbox,"#4F4F4F");
+			CssManipulation.alterFill(layoutControllerBottomHbox,"#4F4F4F");
+			CssManipulation.alterFill(scrollListSp,"#4F4F4F");
+			CssManipulation.alterFill(layoutVisualizationRightAnchorPane,"#4F4F4F");
+			CssManipulation.alterFill(parent,"#4F4F4F");
+			CssManipulation.alterFill(listFuncionariosVbox,"#4F4F4F");
+			CssManipulation.removeClassArrayNode(listFuncionariosVbox.getChildren(),"objectListSun");
+			CssManipulation.addClassArrayNode(listFuncionariosVbox.getChildren(),"objectListMoon");
 		}
 	}
 	

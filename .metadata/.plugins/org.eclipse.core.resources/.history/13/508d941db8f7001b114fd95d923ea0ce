@@ -22,17 +22,9 @@ public class CssManipulation {
 			node.getStyleClass().remove(classCss);
 		}
 	}
-	public static void addClassArrayNode(ObservableList<Node> list,String newClass) {
+	public static void alterClassArrayNode(ObservableList<Node> list,String newClass) {
 		for(Node node:list) {
 			node.getStyleClass().add(newClass);
 		}
-	}
-	public static void removeClassArrayNode(ObservableList<Node> list,String oldClass) {
-		for(Node node:list) {
-			node.getStyleClass().remove(oldClass);
-		}
-	}
-	public static void alterFill(Node node,String colornew) {
-		node.styleProperty().set("-fx-background-color:"+colornew+";");
 	}
 }
