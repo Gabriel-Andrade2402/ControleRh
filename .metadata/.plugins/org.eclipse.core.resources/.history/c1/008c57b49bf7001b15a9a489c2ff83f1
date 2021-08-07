@@ -264,7 +264,6 @@ public class controlUserController {
 			layoutControllerBottomHbox.setMargin(EditarBt,new Insets(45,0,20,70));
 			layoutVisualizationRightAnchorPane.setOpacity(0);
 			layoutVisualizationRightAnchorPane.setDisable(true);
-			funcSelected=null;
 			clearTextFields();
 			cleanFillLastButton();
 		}

@@ -68,7 +68,7 @@
       <ScrollPane fx:id="scrollListSp" layoutX="76.0" layoutY="127.0" prefHeight="468.0" prefWidth="708.0" style="-fx-background-color: #363636;" AnchorPane.bottomAnchor="163.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
       <AnchorPane fx:id="layoutVisualizationRightAnchorPane" disable="true" opacity="0.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4F4F4F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="imageCancelarIv" fitHeight="75.0" fitWidth="96.0" layoutX="38.0" layoutY="547.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageCancelarIv" fitHeight="75.0" fitWidth="96.0" layoutX="38.0" layoutY="547.0" onMouseClicked="#selectYourFile" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../imagens/close-window.png" />
                </image>

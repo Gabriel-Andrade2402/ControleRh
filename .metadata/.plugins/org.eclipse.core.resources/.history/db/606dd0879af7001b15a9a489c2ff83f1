@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Entidades.Funcionario;
-import Sup.CssManipulation;
-import Sup.FileManipulation;
+import cssSup.CssManipulation;
 import database.Querys;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -112,7 +111,7 @@ public class controlUserController {
 		CssManipulation.addClassInNode(AdicionarBt,"buttonControllerSelected");
 		imageFuncionarioIv.setOnMouseClicked((new EventHandler<MouseEvent>() { 
 			   public void handle(MouseEvent event) {
-				   File file=FileManipulation.selectYourFile();
+				   File file=selectYourFile();
 				   if(file!=null) {
 					   imageFuncionarioIv.setImage(new Image("File:..\\..\\imagens\\"+file.getName()));
 					   imageFuncionarioIv.setId(file.getName());
@@ -135,7 +134,7 @@ public class controlUserController {
 			CssManipulation.addClassInNode(EditarBt,"buttonControllerSelected");
 			imageFuncionarioIv.setOnMouseClicked((new EventHandler<MouseEvent>() { 
 				   public void handle(MouseEvent event) {
-					   File file=FileManipulation.selectYourFile();
+					   File file=selectYourFile();
 					   if(file!=null) {
 						   imageFuncionarioIv.setImage(new Image("File:..\\..\\imagens\\"+file.getName()));
 						   imageFuncionarioIv.setId(file.getName());
@@ -229,7 +228,7 @@ public class controlUserController {
 					      selectFunc(Querys.findByEmail(event.toString().split("'")[1]));
 					   } 
 					}));
-				CssManipulation.addClassInNode(bt,"objectList");
+				bt.getStyleClass().add("objectList");
 				//Ordem dos insets é Bottom rigth left top
 				listFuncionariosVbox.setMargin(bt,new Insets(10,0,0,2));
 				listFuncionariosVbox.getChildren().add(bt);
@@ -247,7 +246,20 @@ public class controlUserController {
 		listFuncionariosVbox.getParent().styleProperty().set("-fx-background-color:#363636;");
 	}
 	//Método que seleciona arquivo
-	
+	@FXML
+	public File selectYourFile() {
+		FileChooser chooser = new FileChooser();
+		chooser.setInitialDirectory(new File(System.getProperty("user.home")));
+		File file=chooser.showOpenDialog(null);
+		String path;
+		if(file!= null) {
+		path = file.getPath();
+		} else {
+		//default return value
+		path = null;
+		}
+		return file;
+	}
 	//Fechar e Abrir layoutVisualizationRightAnchorPane
 	public void fecharLayoutVisualization() {
 		if(layoutVisualizationRightAnchorPane.getOpacity()==1) {
@@ -264,7 +276,6 @@ public class controlUserController {
 			layoutControllerBottomHbox.setMargin(EditarBt,new Insets(45,0,20,70));
 			layoutVisualizationRightAnchorPane.setOpacity(0);
 			layoutVisualizationRightAnchorPane.setDisable(true);
-			funcSelected=null;
 			clearTextFields();
 			cleanFillLastButton();
 		}
