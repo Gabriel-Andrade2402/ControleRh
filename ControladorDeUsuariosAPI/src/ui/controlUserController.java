@@ -3,9 +3,11 @@ package ui;
 
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import Entidades.Funcionario;
+import cssSup.CssManipulation;
 import database.Querys;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -167,8 +169,12 @@ public class controlUserController {
 			telefoneTf.setEditable(false);
 			emailTf.setEditable(false);
 			imageFuncionarioIv.setOnMouseClicked(null);
-			imageFuncionarioIv.getStyleClass().remove("imageDefault");
-		}}
+			CssManipulation.addClassInNode(imageFuncionarioIv,"imageDefault");
+		}if(buttonSelected.getText().equals("Adicionar")){
+			CssManipulation.removeClassInNode(AdicionarBt,"buttonControllerSelected");
+			CssManipulation.addClassInNode(AdicionarBt,"buttonController");
+			}
+		}
 		nomeTf.setText(func.getNome());
 		sobrenomeTf.setText(func.getSobrenome());
 		telefoneTf.setText(func.getTelefone());
@@ -197,9 +203,9 @@ public class controlUserController {
 		alert.setTitle("Deletado");
 		alert.setContentText("O funcionario não faz mais parte do banco");
 		alert.show();
-		updateVboxDelete(funcSelected);
 		clearTextFields();
 		fecharLayoutVisualization();
+		updateVboxDelete(funcSelected);
 	}
 	
 	
@@ -329,7 +335,7 @@ public class controlUserController {
 			      selectFunc(Querys.findByEmail(event.toString().split("'")[1]));
 			   } 
 			}));
-		bt.getStyleClass().add("objectList");
+		CssManipulation.addClassInNode(bt, "objectList");
 		//Ordem dos insets é Bottom rigth left top
 		listFuncionariosVbox.setMargin(bt,new Insets(10,0,0,2));
 		listFuncionariosVbox.getChildren().add(bt);
@@ -338,16 +344,16 @@ public class controlUserController {
 		if(buttonSelected!=null) {
 			switch(buttonSelected.getText()) {
 				case "Adicionar":
-					AdicionarBt.getStyleClass().remove("buttonControllerSelected");
-					AdicionarBt.getStyleClass().add("buttonController");
+					CssManipulation.removeClassInNode(AdicionarBt,"buttonControllerSelected");
+					CssManipulation.addClassInNode(AdicionarBt, "buttonController");
 					break;
 				case "Deletar":
-					DeletarBt.getStyleClass().remove("buttonControllerSelected");
-					DeletarBt.getStyleClass().add("buttonController");
+					CssManipulation.removeClassInNode(DeletarBt,"buttonControllerSelected");
+					CssManipulation.addClassInNode(DeletarBt, "buttonController");
 					break;
 				case "Editar":
-					EditarBt.getStyleClass().remove("buttonControllerSelected");
-					EditarBt.getStyleClass().add("buttonController");
+					CssManipulation.removeClassInNode(EditarBt,"buttonControllerSelected");
+					CssManipulation.addClassInNode(EditarBt, "buttonController");
 					break;
 			}
 		}
@@ -385,7 +391,7 @@ public class controlUserController {
 		return true;
 	}
 	public void alertConfirm() {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
+		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Sucesso");
 		alert.setContentText("Operação realizada com sucesso");
 		alert.show();
@@ -413,8 +419,10 @@ public class controlUserController {
 	}
 	public void clearEditingImage() {}
 	public void initializeCssForImagens() {
-		imageconfirmarIv.getStyleClass().add("imageDefault");
-		imageCancelarIv.getStyleClass().add("imageDefault");
-		imageFecharIv.getStyleClass().add("imageDefault");
+		List<Node> listNode=new ArrayList<Node>();
+		listNode.add(imageconfirmarIv);
+		listNode.add(imageCancelarIv);
+		listNode.add(imageFecharIv);
+		CssManipulation.addClassInArrayOfNodes(listNode, "imageDefault");
 	}
 }

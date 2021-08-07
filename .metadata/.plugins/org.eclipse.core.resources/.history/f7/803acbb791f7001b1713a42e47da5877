@@ -1,0 +1,8 @@
+package cssSup;
+
+public class CssManipulation {
+	public void addClassInNode(Node node, String classCss) {
+		
+	}
+
+}

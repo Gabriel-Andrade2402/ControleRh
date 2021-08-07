@@ -1,0 +1,10 @@
+package cssSup;
+
+import javafx.scene.Node;
+
+public class CssManipulation {
+	public void addClassInNode(Node node, String classCss) {
+		node.getStyleClass().add(classCss);
+	}
+
+}
