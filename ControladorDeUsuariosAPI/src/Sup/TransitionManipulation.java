@@ -1,14 +1,15 @@
 package Sup;
 
-import java.sql.Time;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.animation.FillTransition;
 import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 public class TransitionManipulation {
@@ -42,5 +43,8 @@ public class TransitionManipulation {
 			}
 		},250l);
 		
+	}
+	public static void alterFill(Node node,String colornew) {
+		node.styleProperty().set("-fx-background-color:"+colornew+";");
 	}
 }

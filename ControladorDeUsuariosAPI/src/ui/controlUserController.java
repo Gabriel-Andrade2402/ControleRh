@@ -37,6 +37,8 @@ public class controlUserController {
 	@FXML
 	private HBox layoutControllerBottomHbox;
 	@FXML
+	private AnchorPane parent;
+	@FXML
 	private AnchorPane layoutVisualizationRightAnchorPane;
 	@FXML
 	private AnchorPane layoutAlterModeAndColors;
@@ -223,7 +225,7 @@ public class controlUserController {
 	public void fillList() {
 		if(listFuncionariosVbox==null) {
 			InsertVbox();
-			List<Funcionario>list=Querys.returnAll();
+			List<Funcionario>list=databaseManipulation.returnAll();
 			for(Funcionario func:list) {
 				Button bt= new Button();
 				bt.setText(func.getEmail());
@@ -256,7 +258,7 @@ public class controlUserController {
 	//Fechar e Abrir layoutVisualizationRightAnchorPane
 	public void fecharLayoutVisualization() {
 		if(layoutVisualizationRightAnchorPane.getOpacity()==1) {
-			listFuncionariosVbox.setPrefWidth(830);
+			listFuncionariosVbox.setPrefWidth(825);
 			layoutControllerBottomHbox.setPrefWidth(900);
 			AdicionarBt.setPrefHeight(100);
 			AdicionarBt.setPrefWidth(200);
@@ -299,13 +301,25 @@ public class controlUserController {
 	@FXML
 	public void transition() {
 		if(buttonModoEscuro.getTranslateX()==45) {
+			//Muda para o modo claro
 			TransitionManipulation.translateXOfNodeTransition(buttonModoEscuro,0);
 			TransitionManipulation.rotateNode180negative(buttonModoEscuro);	
 			TransitionManipulation.alterImageWithDelay01(buttonModoEscuro,"iconeTrocarModo-lua.png");
+			TransitionManipulation.alterFill(layoutControllerBottomHbox,"#6495ED");
+			TransitionManipulation.alterFill(scrollListSp,"#FFFAFA");
+			TransitionManipulation.alterFill(layoutVisualizationRightAnchorPane,"#FFFAFA");
+			TransitionManipulation.alterFill(parent,"#FFFAFA");
+			TransitionManipulation.alterFill(listFuncionariosVbox,"#FFFAFA");
 		}if(buttonModoEscuro.getTranslateX()==0) {
+			//Muda para o modo escuro
 			TransitionManipulation.translateXOfNodeTransition(buttonModoEscuro,45);
 			TransitionManipulation.rotateNode180positive(buttonModoEscuro);
 			TransitionManipulation.alterImageWithDelay01(buttonModoEscuro,"iconeTrocarModo-sol.png");
+			TransitionManipulation.alterFill(layoutControllerBottomHbox,"#4F4F4F");
+			TransitionManipulation.alterFill(scrollListSp,"#4F4F4F");
+			TransitionManipulation.alterFill(layoutVisualizationRightAnchorPane,"#4F4F4F");
+			TransitionManipulation.alterFill(parent,"#4F4F4F");
+			TransitionManipulation.alterFill(listFuncionariosVbox,"#4F4F4F");
 		}
 	}
 	

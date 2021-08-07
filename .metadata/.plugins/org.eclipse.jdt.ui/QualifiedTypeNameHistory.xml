@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="javafx.scene.Parent"/>
     <fullyQualifiedTypeName name="javafx.fxml.FXMLLoader"/>
     <fullyQualifiedTypeName name="com.sun.jdi.connect.spi.Connection"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
@@ -17,10 +16,8 @@
     <fullyQualifiedTypeName name="javafx.scene.control.TextField"/>
     <fullyQualifiedTypeName name="javafx.scene.layout.Pane"/>
     <fullyQualifiedTypeName name="javafx.scene.control.Button"/>
-    <fullyQualifiedTypeName name="javafx.util.Duration"/>
     <fullyQualifiedTypeName name="javafx.scene.shape.Shape"/>
     <fullyQualifiedTypeName name="cssSup.TransitionsDefault"/>
-    <fullyQualifiedTypeName name="javafx.scene.paint.Color"/>
     <fullyQualifiedTypeName name="java.awt.Paint"/>
     <fullyQualifiedTypeName name="org.graalvm.compiler.nodeinfo.StructuralInput.Anchor"/>
     <fullyQualifiedTypeName name="javafx.scene.control.Accordion"/>
@@ -34,7 +31,6 @@
     <fullyQualifiedTypeName name="javafx.scene.layout.HBox"/>
     <fullyQualifiedTypeName name="javafx.geometry.Insets"/>
     <fullyQualifiedTypeName name="javafx.scene.layout.AnchorPane"/>
-    <fullyQualifiedTypeName name="javafx.scene.image.ImageView"/>
     <fullyQualifiedTypeName name="sun.security.jca.GetInstance"/>
     <fullyQualifiedTypeName name="javafx.scene.input.MouseEvent"/>
     <fullyQualifiedTypeName name="javafx.event.EventHandler"/>
@@ -48,12 +44,20 @@
     <fullyQualifiedTypeName name="java.util.regex.Pattern"/>
     <fullyQualifiedTypeName name="java.util.regex.PatternSyntaxException"/>
     <fullyQualifiedTypeName name="com.sun.org.apache.xalan.internal.xsltc.compiler.Pattern"/>
-    <fullyQualifiedTypeName name="javafx.scene.image.Image"/>
     <fullyQualifiedTypeName name="ui.controlUserController"/>
-    <fullyQualifiedTypeName name="javafx.scene.Node"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="cssSup.CssManipulation"/>
-    <fullyQualifiedTypeName name="model.databaseManipulation"/>
     <fullyQualifiedTypeName name="Sup.CssManipulation"/>
+    <fullyQualifiedTypeName name="javafx.scene.Node"/>
+    <fullyQualifiedTypeName name="javafx.util.Duration"/>
+    <fullyQualifiedTypeName name="java.sql.Time"/>
+    <fullyQualifiedTypeName name="java.util.Timer"/>
+    <fullyQualifiedTypeName name="java.util.TimerTask"/>
+    <fullyQualifiedTypeName name="javafx.scene.image.ImageView"/>
+    <fullyQualifiedTypeName name="javafx.scene.image.Image"/>
+    <fullyQualifiedTypeName name="javafx.scene.paint.Color"/>
+    <fullyQualifiedTypeName name="javafx.animation.FillTransition"/>
+    <fullyQualifiedTypeName name="Sup.TransitionManipulation"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="model.databaseManipulation"/>
 </qualifiedTypeNameHistroy>
