@@ -1,4 +1,4 @@
-/* #4F4F4F -> PRETO do visualization que abre*/
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 .buttonController{
 	/*-fx-background-color: #FFFAFA; */
 	-fx-background-color: #FFFAFA;
@@ -7,7 +7,7 @@
 	-fx-text-fill:black;
 }
 .buttonController:hover{
-	/*-fx-background-color: #00BFFF; */
+	/*-fx-background-color: #FFFAFA; */
 	-fx-background-color: #00BFFF;
 	-fx-text-fill:white;
 	-fx-font-size:10px;
@@ -19,7 +19,7 @@
 	-fx-border-color:white;
 }
 .buttonControllerSelected{
-	/*-fx-background-color: #00BFFF; */
+	/*-fx-background-color: #FFFAFA; */
 	-fx-background-color: #00BFFF;
 	-fx-text-fill:white;
 	-fx-font-size:10px;
@@ -38,7 +38,7 @@
 	-fx-font-family:arial;
 }
 .objectList:hover{
-	/*-fx-background-color: #1E90FF; */
+	/*-fx-background-color: #FFFAFA; */
 	-fx-background-color:#1E90FF;
 	-fx-font-weight:bold;
 	-fx-text-fill:white;

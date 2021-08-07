@@ -1,4 +1,4 @@
-/* #4F4F4F -> PRETO do visualization que abre*/
+/* #4F4F4F*/
 .buttonController{
 	/*-fx-background-color: #FFFAFA; */
 	-fx-background-color: #FFFAFA;

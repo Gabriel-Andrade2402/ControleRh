@@ -16,11 +16,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseExited="#fillList" onMouseMoved="#fillList" prefHeight="651.0" prefWidth="843.0" style="-fx-background-color: #363636;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controlUserController">
    <children>
-      <HBox fx:id="layoutControllerBottomHbox" layoutY="466.0" prefHeight="184.0" prefWidth="708.0" style="-fx-background-color: #363636;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="460.0">
+      <HBox fx:id="layoutControllerBottomHbox" layoutY="466.0" prefHeight="184.0" prefWidth="708.0" style="-fx-background-color: #483D8B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="460.0">
          <children>
             <Button fx:id="AdicionarBt" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#buttonAdicionar" prefHeight="100.0" prefWidth="150.0" styleClass="buttonController" text="Adicionar" textAlignment="CENTER">
                <HBox.margin>
-                  <Insets bottom="20.0" left="100.0" top="45.0" />
+                  <Insets bottom="20.0" left="100.0" top="60.0" />
                </HBox.margin>
                <graphic>
                   <ImageView fitHeight="45.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
@@ -35,7 +35,7 @@
             </Button>
             <Button fx:id="DeletarBt" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#buttonDeletar" prefHeight="100.0" prefWidth="150.0" styleClass="buttonController" text="Deletar">
                <HBox.margin>
-                  <Insets bottom="20.0" left="100.0" top="45.0" />
+                  <Insets bottom="20.0" left="100.0" top="60.0" />
                </HBox.margin>
                <font>
                   <Font size="23.0" />
@@ -50,7 +50,7 @@
             </Button>
             <Button fx:id="EditarBt" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#buttonEditar" prefHeight="100.0" prefWidth="150.0" styleClass="buttonController" text="Editar">
                <HBox.margin>
-                  <Insets bottom="20.0" left="100.0" top="45.0" />
+                  <Insets bottom="20.0" left="100.0" top="60.0" />
                </HBox.margin>
                <font>
                   <Font size="24.0" />
@@ -65,8 +65,8 @@
             </Button>
          </children>
       </HBox>
-      <ScrollPane fx:id="scrollListSp" layoutX="76.0" layoutY="127.0" prefHeight="468.0" prefWidth="708.0" style="-fx-background-color: #363636;" AnchorPane.bottomAnchor="163.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
-      <AnchorPane fx:id="layoutVisualizationRightAnchorPane" disable="true" opacity="0.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4F4F4F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ScrollPane fx:id="scrollListSp" layoutX="76.0" layoutY="127.0" prefHeight="468.0" prefWidth="708.0" style="-fx-background-color: #FFFAFA;" AnchorPane.bottomAnchor="163.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+      <AnchorPane fx:id="layoutVisualizationRightAnchorPane" disable="true" opacity="0.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFAFA;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fx:id="imageCancelarIv" fitHeight="75.0" fitWidth="96.0" layoutX="38.0" layoutY="547.0" pickOnBounds="true" preserveRatio="true">
                <image>

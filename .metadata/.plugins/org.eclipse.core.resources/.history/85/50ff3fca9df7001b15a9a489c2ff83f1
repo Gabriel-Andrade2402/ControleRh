@@ -243,8 +243,8 @@ public class controlUserController {
 			scrollListSp.setContent(listFuncionariosVbox);
 			initializeCssForImagens();
 		}
-		listFuncionariosVbox.styleProperty().set("-fx-background-color:#FFFAFA;");
-		listFuncionariosVbox.getParent().styleProperty().set("-fx-background-color:#FFFAFA;");
+		listFuncionariosVbox.styleProperty().set("-fx-background-color:#363636;");
+		listFuncionariosVbox.getParent().styleProperty().set("-fx-background-color:#363636;");
 	}
 	//Método que seleciona arquivo
 	

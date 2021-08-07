@@ -259,9 +259,9 @@ public class controlUserController {
 			DeletarBt.setPrefWidth(200);
 			EditarBt.setPrefHeight(100);
 			EditarBt.setPrefWidth(200);
-			layoutControllerBottomHbox.setMargin(AdicionarBt,new Insets(45,0,20,70));
-			layoutControllerBottomHbox.setMargin(DeletarBt,new Insets(45,0,20,70));
-			layoutControllerBottomHbox.setMargin(EditarBt,new Insets(45,0,20,70));
+			layoutControllerBottomHbox.setMargin(AdicionarBt,new Insets(45,0,40,70));
+			layoutControllerBottomHbox.setMargin(DeletarBt,new Insets(45,0,40,70));
+			layoutControllerBottomHbox.setMargin(EditarBt,new Insets(45,0,40,70));
 			layoutVisualizationRightAnchorPane.setOpacity(0);
 			layoutVisualizationRightAnchorPane.setDisable(true);
 			funcSelected=null;
@@ -279,9 +279,9 @@ public class controlUserController {
 		DeletarBt.setPrefWidth(130);
 		EditarBt.setPrefHeight(70);
 		EditarBt.setPrefWidth(130);
-		layoutControllerBottomHbox.setMargin(AdicionarBt,new Insets(45,0,20,30));
-		layoutControllerBottomHbox.setMargin(DeletarBt,new Insets(45,0,20,30));
-		layoutControllerBottomHbox.setMargin(EditarBt,new Insets(45,0,20,30));
+		layoutControllerBottomHbox.setMargin(AdicionarBt,new Insets(45,0,40,30));
+		layoutControllerBottomHbox.setMargin(DeletarBt,new Insets(45,0,100,30));
+		layoutControllerBottomHbox.setMargin(EditarBt,new Insets(45,0,100,30));
 		layoutVisualizationRightAnchorPane.setOpacity(1);
 		layoutVisualizationRightAnchorPane.setDisable(false);
 		/*for(Node n:listFuncionariosVbox.getChildren()) {
