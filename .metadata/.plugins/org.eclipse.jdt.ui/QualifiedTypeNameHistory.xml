@@ -55,4 +55,5 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="cssSup.CssManipulation"/>
     <fullyQualifiedTypeName name="model.databaseManipulation"/>
+    <fullyQualifiedTypeName name="Sup.CssManipulation"/>
 </qualifiedTypeNameHistroy>

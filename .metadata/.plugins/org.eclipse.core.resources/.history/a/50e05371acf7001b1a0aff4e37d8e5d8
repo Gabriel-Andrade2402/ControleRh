@@ -1,0 +1,8 @@
+package Sup;
+
+public class TransitionManipulation {
+
+	public void translateXOfNodeTransition(Node node, float value) {
+		
+	}
+}

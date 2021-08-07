@@ -1,0 +1,10 @@
+package Sup;
+
+import javafx.scene.Node;
+
+public class TransitionManipulation {
+
+	public void translateXOfNodeTransition(Node node, float value) {
+		
+	}
+}

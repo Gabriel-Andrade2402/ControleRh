@@ -9,6 +9,7 @@ import java.util.List;
 import Entidades.Funcionario;
 import Sup.CssManipulation;
 import Sup.FileManipulation;
+import Sup.TransitionManipulation;
 import database.Querys;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -38,7 +39,7 @@ public class controlUserController {
 	@FXML
 	private AnchorPane layoutVisualizationRightAnchorPane;
 	@FXML
-	private TextField nomeTf;
+	private AnchorPane layoutAlterModeAndColors;
 	@FXML
 	private ImageView imageFuncionarioIv;
 	@FXML
@@ -48,9 +49,13 @@ public class controlUserController {
 	@FXML
 	private ImageView imageFecharIv;
 	@FXML
+	private ImageView buttonModoEscuro;
+	@FXML
 	private TextField sobrenomeTf;
 	@FXML
 	private TextField telefoneTf;
+	@FXML
+	private TextField nomeTf;
 	@FXML
 	private TextField emailTf;
 	@FXML
@@ -246,7 +251,7 @@ public class controlUserController {
 		listFuncionariosVbox.styleProperty().set("-fx-background-color:#FFFAFA;");
 		listFuncionariosVbox.getParent().styleProperty().set("-fx-background-color:#FFFAFA;");
 	}
-	//Método que seleciona arquivo
+
 	
 	//Fechar e Abrir layoutVisualizationRightAnchorPane
 	public void fecharLayoutVisualization() {
@@ -290,6 +295,19 @@ public class controlUserController {
 		}*/	
 	}
 	
+	//Transições
+	@FXML
+	public void transition() {
+		if(buttonModoEscuro.getTranslateX()==45) {
+			TransitionManipulation.translateXOfNodeTransition(buttonModoEscuro,0);
+			TransitionManipulation.rotateNode180negative(buttonModoEscuro);	
+			TransitionManipulation.alterImageWithDelay01(buttonModoEscuro,"iconeTrocarModo-lua.png");
+		}if(buttonModoEscuro.getTranslateX()==0) {
+			TransitionManipulation.translateXOfNodeTransition(buttonModoEscuro,45);
+			TransitionManipulation.rotateNode180positive(buttonModoEscuro);
+			TransitionManipulation.alterImageWithDelay01(buttonModoEscuro,"iconeTrocarModo-sol.png");
+		}
+	}
 	
 	/*metodos auxiliar para
 	  -resetar os dados antigos dos textFields,

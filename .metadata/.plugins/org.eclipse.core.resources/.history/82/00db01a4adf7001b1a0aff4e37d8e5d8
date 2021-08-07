@@ -1,0 +1,20 @@
+package Sup;
+
+import javafx.animation.TranslateTransition;
+import javafx.scene.Node;
+import javafx.util.Duration;
+
+public class TransitionManipulation {
+
+	public static void translateXOfNodeTransition(Node node, double value) {
+		TranslateTransition trans = new TranslateTransition(Duration.seconds(2),node);
+        //trans.setFromX(scene.getWidth());
+        trans.setToX(value);
+        trans.setCycleCount(1);
+        // Play the Animation
+        trans.play();  
+	}
+	public static void rotateNode180positive(Node node) {
+		
+	}
+}

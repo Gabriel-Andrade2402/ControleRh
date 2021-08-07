@@ -1,0 +1,20 @@
+package Sup;
+
+import javafx.animation.TranslateTransition;
+import javafx.scene.Node;
+import javafx.util.Duration;
+
+public class TransitionManipulation {
+
+	public void translateXOfNodeTransition(Node node, float value) {
+		TranslateTransition trans = new TranslateTransition(Duration.seconds(2),node);
+        trans.setFromX(scene.getWidth());
+        trans.setToX(-1.0 * text.getLayoutBounds().getWidth());
+        // Let the animation run forever
+        trans.setCycleCount(TranslateTransition.INDEFINITE);
+        // Reverse direction on alternating cycles
+        trans.setAutoReverse(true);
+        // Play the Animation
+        trans.play();  
+	}
+}

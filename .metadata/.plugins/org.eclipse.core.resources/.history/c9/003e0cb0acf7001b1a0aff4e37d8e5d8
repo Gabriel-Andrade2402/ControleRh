@@ -1,0 +1,17 @@
+package Sup;
+
+import javafx.animation.TranslateTransition;
+import javafx.scene.Node;
+import javafx.util.Duration;
+
+public class TransitionManipulation {
+
+	public void translateXOfNodeTransition(Node node, float value) {
+		TranslateTransition trans = new TranslateTransition(Duration.seconds(2),node);
+        //trans.setFromX(scene.getWidth());
+        trans.setToX(100);
+        trans.setCycleCount(1);
+        // Play the Animation
+        trans.play();  
+	}
+}
